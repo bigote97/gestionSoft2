@@ -72,8 +72,11 @@ def buscar_en_notas():
         if (i.coincide(buscar)):
             print(buscar, ' es la nota numero: ', i.id)
             i.mostrar()
+
+
 menu()
 run = int(input())
+
 while( run == 1 or run == 2):
     if run == 1:
         crear_nota(input('Ingrese la nota: '), input('Ingrese la etiqueta de la nota: '))
