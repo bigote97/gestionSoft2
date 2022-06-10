@@ -1,11 +1,24 @@
-empleados = [
-    '40317631':{
-        nombre: 'augusto',
-        apellido: 'Rossetti',
-        
-    }
-]
+from random import randint
+import names
 
+
+empleados = []
+
+for i in range(10):
+    temp = {
+        'nombre': names.get_first_name(),
+        'apellido': names.get_last_name(),
+        'dni': randint(10000000, 99999999),
+        'salario': randint(10000, 99999),
+    }
+    aux = randint(0, 1)
+    if (aux == 1):
+        temp['ventas']= randint(1000, 9999)
+    else:
+        temp['antiguedad']= randint(0, 9)
+    empleados.append(temp)
+for j in range(10):
+    print(empleados[j])
 
 
 class empleadoEvantual:
@@ -17,7 +30,7 @@ class empleadoEvantual:
         self.ventas = ventas
 
     def calcularSalario(self):
-        comision = totalVentas * 0.5
+        comision = ventas * 0.5
         total = self.salario + comision
         return total
 
