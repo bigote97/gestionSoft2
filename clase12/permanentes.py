@@ -5,16 +5,22 @@ class empleadoPermanente:
         self.dni = dni
         self.salario = salario
         self.antiguedad = antiguedad
+
+    def calcularIngresoTotal(self):
+        total = self.salario + self.calcularComision()
+        return total
     
-    def calcularSalario(self):
+    def calcularComision(self):
         comision = (self.salario*self.antiguedad)/100
-        total = self.salario + comision
-    
-    def nuevoEmpleado(self, nombre, apellido, dni, salario, ventas):
-        self.verificaDni(dni)
-    
-    def verificaDni(dni):
-        for empleado in range(empleados):
-            if empleado.dni == dni:
-                return True
-                break
+        return comision
+    def mostrarEmpleado(self):
+        print('Nombre: ', self.nombre)
+        print('Apellido: ', self.apellido)
+        print('Dni: ', self.dni)
+        print('Salario: $', self.salario)
+        print('Antiguedad: ', self.antiguedad)
+
+pedrito = empleadoPermanente('pedro', 'ferreyra', 40317631, 20000, 20)
+pedrito.mostrarEmpleado()
+total = pedrito.calcularIngresoTotal()
+print(total)

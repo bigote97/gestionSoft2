@@ -1,10 +1,10 @@
 from random import randint
-import permanentes from empleadoPermanente
-import eventuales from empleadoEventual
+from permanentes import empleadoPermanente
+from eventuales import empleadoEventual
 import names
 
 class personal:
-    def __init__(self):
+    def __init__(self, nombre, apellido, dni, salario, extra):
         empleados = []
         for i in range(10):
             temp = {
@@ -25,5 +25,41 @@ class personal:
             
             empleados.append(temp)
         self.empleados = empleados
+        self.nombre = nombre
+        self.apellido = apellido
+        self.dni = dni
+        self.salario = salario
+        self.ventas = extra
 
-    def nuevoEmpleado(self, nombre, apellido, dni, salario, extra):
+    def verificaDni(self, dni):
+        for empleado in range(self.empleados):
+            if empleado.dni == dni:
+                return True
+                break
+        return False
+    
+    def listarEmpleados(self):
+        for empleado in range(self.empleados):
+            print(empleado)
+    def nuevoEmpleado(self):
+        if not self.verificaDni(self.dni):
+            temp = {
+                'nombre': self.nombre,
+                'apellido': self.apellido,
+                'dni': self.dni,
+                'salario': self.salario
+            }
+            if type(self.extra) is list:
+                temp['ventas'] = []
+                temp['ventas'] = self.extra
+            else:
+                temp['antiguedad'] = self.extra
+            self.empleados.append(temp)
+            retorna = temp
+        else:
+            retorna = 'Usuario existente'
+        return retorna
+
+pedro = personal('pedro', 'ferreyra', 40317631, 20000, 20)
+
+pedro.nuevoEmpleado()
