@@ -18,14 +18,11 @@ class empleadoEventual:
         comision = aux * 0.5
         return comision
     def mostrarEmpleado(self):
-        print('Nombre: ', self.nombre)
-        print('Apellido: ', self.apellido)
-        print('Dni: ', self.dni)
-        print('Salario: $', self.salario)
-        print('Ventas: ', self.ventas)
-
-pedrito = empleadoEventual('pedro', 'ferreyra', 40317631, 20000, [20, 30, 40])
-pedrito.mostrarEmpleado()
-total = pedrito.calcularIngresoTotal()
-print(total)
-#pedrito.calcularIngresoTotal
+        string = f'''
+        Soy eventual
+        Nombre:  {self.nombre}
+        Apellido:  {self.apellido}
+        Dni:  {self.dni}
+        Salario: $ {self.salario}
+        Ventas:  {self.ventas}'''
+        return string

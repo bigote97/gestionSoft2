@@ -14,13 +14,11 @@ class empleadoPermanente:
         comision = (self.salario*self.antiguedad)/100
         return comision
     def mostrarEmpleado(self):
-        print('Nombre: ', self.nombre)
-        print('Apellido: ', self.apellido)
-        print('Dni: ', self.dni)
-        print('Salario: $', self.salario)
-        print('Antiguedad: ', self.antiguedad)
-
-pedrito = empleadoPermanente('pedro', 'ferreyra', 40317631, 20000, 20)
-pedrito.mostrarEmpleado()
-total = pedrito.calcularIngresoTotal()
-print(total)
+        string = f'''
+        soy permanente
+        Nombre:  {self.nombre}
+        Apellido:  {self.apellido}
+        Dni:  {self.dni}
+        Salario: $ {self.salario}
+        Ventas:  {self.antiguedad}'''
+        return string

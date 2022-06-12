@@ -4,7 +4,7 @@ from eventuales import empleadoEventual
 import names
 
 class personal:
-    def __init__(self, nombre, apellido, dni, salario, extra):
+    def __init__(self):
         empleados = []
         for i in range(10):
             temp = {
@@ -15,7 +15,8 @@ class personal:
             }
             aux = randint(0, 1)
             if (aux == 1):
-                auxVentas = randint(1, 99)
+                # auxVentas = randint(1, 99)
+                auxVentas = randint(1, 9)
                 temp['ventas'] = []
                 for i in range(auxVentas):
                     temp['ventas'].append(randint(1000, 9999))
@@ -23,43 +24,41 @@ class personal:
             else:
                 temp['antiguedad'] = randint(0, 9)
             
-            empleados.append(temp)
-        self.empleados = empleados
-        self.nombre = nombre
-        self.apellido = apellido
-        self.dni = dni
-        self.salario = salario
-        self.ventas = extra
+            empleados.append(temp.copy())
+        self.empleados = empleados.copy()
 
     def verificaDni(self, dni):
-        for empleado in range(self.empleados):
-            if empleado.dni == dni:
-                return True
-                break
-        return False
+        retorna = None
+        for empleado in self.empleados:
+            if empleado['dni'] == dni:
+                if (empleado.has_key('ventas')):
+                    retorna = empleadoEventual(empleado['nombre'], empleado['apellido'], empleado['dni'], empleado['salario'], empleado['ventas']) 
+                else:   
+                    retorna = empleadoPermanente(empleado['nombre'], empleado['apellido'], empleado['dni'], empleado['salario'], empleado['antiguedad'])
+                    
+        return retorna
     
     def listarEmpleados(self):
-        for empleado in range(self.empleados):
+        for empleado in self.empleados:
             print(empleado)
-    def nuevoEmpleado(self):
-        if not self.verificaDni(self.dni):
-            temp = {
-                'nombre': self.nombre,
-                'apellido': self.apellido,
-                'dni': self.dni,
-                'salario': self.salario
-            }
-            if type(self.extra) is list:
-                temp['ventas'] = []
-                temp['ventas'] = self.extra
-            else:
-                temp['antiguedad'] = self.extra
-            self.empleados.append(temp)
-            retorna = temp
+    
+    def agregarEmpleado(self, nombre, apellido, dni, salario, extra):
+        if (self.verificaDni(dni) == None):
+            if (type(extra) is list):
+                temp = empleadoEventual(nombre, apellido, dni, salario, extra)            
+                self.empleados.append(temp)
+                retorna = temp
+            else:   
+                temp = empleadoPermanente(nombre, apellido, dni, salario, extra)
+                self.empleados.append(temp)
+                retorna = temp
         else:
             retorna = 'Usuario existente'
         return retorna
 
-pedro = personal('pedro', 'ferreyra', 40317631, 20000, 20)
-
-pedro.nuevoEmpleado()
+    def verificaString(self, str):
+        aux = []
+        for empleado in self.empleados:
+            if (str in empleado['nombre'] or str in empleado['apellido']):
+                aux.append(empleado.copy())
+        return aux
