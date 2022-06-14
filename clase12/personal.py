@@ -37,7 +37,8 @@ class personal:
     def verificaDni(self, dni):
         retorna = None
         for empleado in self.empleados:
-            if empleado['dni'] == dni:
+            print(empleado)
+            if empleado.dni() == dni:
                 if ('ventas' in empleado):
                     retorna = empleadoEventual(empleado['nombre'], empleado['apellido'], empleado['dni'], empleado['salario'], empleado['ventas']) 
                 else:   
@@ -75,6 +76,7 @@ class personal:
         aux = None
         for empleado in self.empleados:
             if (str in empleado['nombre'] or str in empleado['apellido']):
+                aux = []
                 if ('ventas' in empleado):
                     retorna = empleadoEventual(empleado['nombre'], empleado['apellido'], empleado['dni'], empleado['salario'], empleado['ventas']) 
                 else:   

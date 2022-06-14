@@ -17,6 +17,7 @@ class empleadoEventual:
             aux = aux + i
         comision = aux * 0.5
         return comision
+    
     def mostrarEmpleado(self):
         string = f'''
         Nombre:  {self.nombre}
@@ -25,3 +26,6 @@ class empleadoEventual:
         Salario: $ {self.salario}
         Ventas:  {self.ventas}'''
         return string
+    
+    def dni(self):
+        return self.dni

@@ -13,6 +13,7 @@ class empleadoPermanente:
     def calcularComision(self):
         comision = (self.salario*self.antiguedad)/100
         return comision
+    
     def mostrarEmpleado(self):
         string = f'''
         Nombre:  {self.nombre}
@@ -21,3 +22,6 @@ class empleadoPermanente:
         Salario: $ {self.salario}
         Antiguedad:  {self.antiguedad}'''
         return string
+    
+    def dni(self):
+        return self.dni
