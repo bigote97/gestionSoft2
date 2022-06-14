@@ -72,8 +72,12 @@ class personal:
         return retorna
 
     def verificaString(self, str):
-        aux = []
+        aux = None
         for empleado in self.empleados:
             if (str in empleado['nombre'] or str in empleado['apellido']):
-                aux.append(empleado)
+                if ('ventas' in empleado):
+                    retorna = empleadoEventual(empleado['nombre'], empleado['apellido'], empleado['dni'], empleado['salario'], empleado['ventas']) 
+                else:   
+                    retorna = empleadoPermanente(empleado['nombre'], empleado['apellido'], empleado['dni'], empleado['salario'], empleado['antiguedad'])
+                aux.append(retorna)
         return aux

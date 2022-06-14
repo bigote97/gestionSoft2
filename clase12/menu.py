@@ -1,7 +1,8 @@
 from permanentes import empleadoPermanente
 from eventuales import empleadoEventual
 from personal import personal
-import sys
+import os
+import time
 
 class menu:
 	def __init__ (self):
@@ -28,6 +29,10 @@ class menu:
 			elif (rta == '5'):
 				self.listarEmpleados()
 			elif (rta == '6'):
+				for i in range(5, 1, 1):
+					print('Cerrando programa', i)
+					time.sleep(2.5)
+					os.system('cls')
 				break
   
 	def agregarEmpleado(self):
@@ -64,8 +69,11 @@ class menu:
 	def buscarStr(self):
 		str = input('Ingrese nombre o apellido a buscar: ')
 		resultados = self.personal.verificaString(str)
-		for resultado in resultados:
-			resultado.mostrarEmpleado()
+		if (resultados == None):
+			print('No hay usuarios con esas especificaciones')
+		else:
+			for resultado in resultados:
+				print(resultado.mostrarEmpleado())
 
 	def verMontosDni(self):
 		dni = int(input('Ingrese DNI a buscar: '))
