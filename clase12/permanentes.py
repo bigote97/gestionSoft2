@@ -15,10 +15,9 @@ class empleadoPermanente:
         return comision
     def mostrarEmpleado(self):
         string = f'''
-        soy permanente
         Nombre:  {self.nombre}
         Apellido:  {self.apellido}
         Dni:  {self.dni}
         Salario: $ {self.salario}
-        Ventas:  {self.antiguedad}'''
+        Antiguedad:  {self.antiguedad}'''
         return string

@@ -63,7 +63,9 @@ class menu:
 	
 	def buscarStr(self):
 		str = input('Ingrese nombre o apellido a buscar: ')
-		print(self.personal.verificaString(str))
+		resultados = self.personal.verificaString(str)
+		for resultado in resultados:
+			resultado.mostrarEmpleado()
 
 	def verMontosDni(self):
 		dni = int(input('Ingrese DNI a buscar: '))
@@ -72,6 +74,8 @@ class menu:
 			print('No se encontro un empleado con ese DNI')
 		else:
 			print(empleado.mostrarEmpleado())
+			print('Comision: ', empleado.calcularComision())
+			print('Salario total: ', empleado.calcularIngresoTotal())
 	
 	def listarEmpleados(self):
 		self.personal.listarEmpleados()

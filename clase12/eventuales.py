@@ -19,7 +19,6 @@ class empleadoEventual:
         return comision
     def mostrarEmpleado(self):
         string = f'''
-        Soy eventual
         Nombre:  {self.nombre}
         Apellido:  {self.apellido}
         Dni:  {self.dni}
