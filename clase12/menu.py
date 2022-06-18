@@ -37,26 +37,31 @@ class menu:
   
 	def agregarEmpleado(self):
 		print('Cargar nuevo empleado:')
-		dni = input('Ingrese DNI: ')
-		nombre = input('Ingrese nombre: ')
-		apellido = input('Ingrese apellido: ')
-		salario = input('Ingrese salario: ')
-		rta = input('Es un empleado eventual? Y = Si, N = No ')
-		if (rta == 'y' or rta == 'Y'):
-			extra = []
-			sigue = True
-			while sigue:
-				aux = int(input('Ingrese ventas: '))
-				extra.append(aux)
-				rta = input('Ingresara una nueva venta? Y = Si, N = No ')
-				if (rta == 'y' or rta == 'Y'):
-					sigue = True
-				else:
-					sigue = False
+		dni = int(input('Ingrese DNI: '))
+		if (self.personal.verificaDni(dni) == None):
+			nombre = input('Ingrese nombre: ')
+			apellido = input('Ingrese apellido: ')
+			salario = input('Ingrese salario: ')
+			rta = input('Es un empleado eventual? Y = Si, N = No ')
+			if (rta == 'y' or rta == 'Y'):
+				extra = []
+				sigue = True
+				while sigue:
+					aux = int(input('Ingrese ventas: '))
+					extra.append(aux)
+					rta = input('Ingresara una nueva venta? Y = Si, N = No ')
+					if (rta == 'y' or rta == 'Y'):
+						sigue = True
+					else:
+						sigue = False
+			else:
+				extra = int(input('Ingrese antiguedad: '))
+			empleado = self.personal.agregarEmpleado(nombre, apellido, dni, salario, extra)
+			print(empleado.mostrarEmpleado())
 		else:
-			extra = int(input('Ingrese antiguedad: '))
-		empleado = self.personal.agregarEmpleado(nombre, apellido, dni, salario, extra)
-		print(empleado.mostrarEmpleado())
+			print('''
+	Empleado existente
+			''')
 
 	def buscarDni(self):
 		dni = int(input('Ingrese DNI a buscar: '))

@@ -13,9 +13,10 @@ class empleadoEventual:
     
     def calcularComision(self):
         aux = 0
+        procentaje_comision = 0.5
         for i in self.ventas:
             aux = aux + i
-        comision = aux * 0.5
+        comision = aux * procentaje_comision
         return comision
     
     def mostrarEmpleado(self):
@@ -26,6 +27,9 @@ class empleadoEventual:
         Salario: $ {self.salario}
         Ventas:  {self.ventas}'''
         return string
-    
-    def dni(self):
+        
+    def numeroDni(self):
         return self.dni
+
+    def esPermante():
+        return False

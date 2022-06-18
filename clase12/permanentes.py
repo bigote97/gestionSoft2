@@ -23,5 +23,8 @@ class empleadoPermanente:
         Antiguedad:  {self.antiguedad}'''
         return string
     
-    def dni(self):
+    def numeroDni(self):
         return self.dni
+    
+    def esPermante():
+        return True
