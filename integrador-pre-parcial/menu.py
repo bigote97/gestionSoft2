@@ -62,10 +62,10 @@ class Menu:
             venta = int(input('Ingrese monto de venta o 0 para finalizar '))
           else:
             break
-        nuevo_empleado = self.personal.agregar_empleado(nombre_ne, apellido_ne, dni_ne, salario_ne, ventas_ne)
+        nuevo_empleado = self.personal.agregar_empleado(nombre_ne, apellido_ne, dni_ne, salario_ne, None, ventas_ne)
       elif(tipo_ne == 'P' or tipo_ne == 'p'):
         antiguedad_ne = int(input('Ingrese antiguedad del empleado '))
-        nuevo_empleado = self.personal.agregar_empleado(nombre_ne, apellido_ne, dni_ne, salario_ne, antiguedad_ne)
+        nuevo_empleado = self.personal.agregar_empleado(nombre_ne, apellido_ne, dni_ne, salario_ne, antiguedad_ne, None)
       print('Empleado registrado con exito')
       print(nuevo_empleado.mostrar_empleado())
 

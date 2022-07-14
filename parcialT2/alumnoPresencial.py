@@ -11,31 +11,40 @@ class AlumnoPresencial:
         self.asist = asist
 
     def obtener_nota_final(self):
-        tp_no_aprobado = False
-        for nota in self.notas_tp:
-            if nota < 4:
-                tp_no_aprobado = True
-                break 
-        if( (self.asist < 75) or tp_no_aprobado):
+        if self.asist < 75 or min(self.notas_tp) < 4:
             return 1
         else:
-            todo_aprobado = False
-            cantidad_tp = 0
-            suma_notas = 0
-            for nota in self.notas_tp:
-                if nota < 6:
-                    todo_aprobado = False
-                else: 
-                    todo_aprobado = True
-
-                cantidad_tp += 1
-                suma_notas += nota
-            if todo_aprobado:
-                promedio = suma_notas/cantidad_tp
+            if min(self.notas_tp) < 6:
+                promedio = sum(self.notas_tp) / len(self.notas_tp) - 1
                 return promedio
             else:
-                promedio = (suma_notas/cantidad_tp) - 1
+                promedio = sum(self.notas_tp) / len(self.notas_tp)
                 return promedio
+        # tp_no_aprobado = False
+        # for nota in self.notas_tp:
+        #     if nota < 4:
+        #         tp_no_aprobado = True
+        #         break 
+        # if( (self.asist < 75) or tp_no_aprobado):
+        #     return 1
+        # else:
+        #     todo_aprobado = False
+        #     cantidad_tp = 0
+        #     suma_notas = 0
+        #     for nota in self.notas_tp:
+        #         if nota < 6:
+        #             todo_aprobado = False
+        #         else: 
+        #             todo_aprobado = True
+
+        #         cantidad_tp += 1
+        #         suma_notas += nota
+        #     if todo_aprobado:
+        #         promedio = suma_notas/cantidad_tp
+        #         return promedio
+        #     else:
+        #         promedio = (suma_notas/cantidad_tp) - 1
+        #         return promedio
         
     def mostrar_datos(self):
         texto = f"Estudiante: {self.nombre} {self.apellido}\n"

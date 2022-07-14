@@ -9,12 +9,14 @@ class Personal:
   def agregar_empleado(self, nombre, apellido, dni, salario, antiguedad = None, ventas = None):
     if (antiguedad):
       nuevo_empleado = EmpleadoPermanente(nombre, apellido, dni, salario, antiguedad)
+      self.lista_empleados.append(nuevo_empleado)
+      return nuevo_empleado
     elif (ventas):
       nuevo_empleado = EmpleadoEventual(nombre, apellido, dni, salario, ventas)
+      self.lista_empleados.append(nuevo_empleado)
+      return nuevo_empleado
     else:
       return None
-    self.lista_empleados.append(nuevo_empleado)
-    return nuevo_empleado
 
   def buscar_dni(self, dni_a_buscar):
     for empleado in self.lista_empleados:
