@@ -1,6 +1,3 @@
-from empleadoPermanente import EmpleadoPermanente
-from empleadoEventual import EmpleadoEventual
-
 class Empleado:
   def __init__(self, nombre, apellido, dni, salario):
     self.nombre = nombre

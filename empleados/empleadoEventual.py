@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+from empleado import Empleado
 
-class EmpleadoEventual:
+class EmpleadoEventual(Empleado):
   def __init__(self, nombre, apellido, dni, salario, ventas):
     super().__init__(nombre, apellido, dni, salario)
     self.ventas = ventas

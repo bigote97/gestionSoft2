@@ -42,9 +42,9 @@ class Menu:
             if tipo in [ 'e', 'E', 'p', 'P']:
                 break
             else:
-                print("Error: ingrese 'e' o 'p'")
-        nombre = input("Ingrese el nombre del Empleado: ")
-        apellido = input("Ingrese el apellido del Empleado: ")
+                print("Error: ingrese 'e' o 'p' ")
+        nombre = input("Ingrese el nombre del Empleado: ").capitalize()
+        apellido = input("Ingrese el apellido del Empleado: ").capitalize()
         dni = input("Ingrese el dni del Empleado: ")
         salario = int(input("Ingrese el salario del Empleado: "))
 
@@ -55,7 +55,7 @@ class Menu:
             antiguedad = None
             ventas = []
             while True:
-                una_venta = int(input("Ingrese el monto de una venta, 0 para finalizar"))
+                una_venta = int(input("Ingrese el monto de una venta, 0 para finalizar "))
                 if una_venta == 0:
                     break
                 ventas.append(una_venta)
@@ -63,33 +63,33 @@ class Menu:
         self.personal.agregar_empleado(nombre, apellido, dni, salario, antiguedad, ventas)
 
     def buscar_por_dni(self):
-        dni_a_buscar = input("Ingrese el DNI a buscar")
+        dni_a_buscar = input("Ingrese el DNI a buscar ")
         empleado = self.personal.buscar_por_dni(dni_a_buscar)
         if empleado:
             # Mostramos los datos del empleado:
             print(empleado.mostrar_datos())
         else:
-            print("No se encontró un empleado con ese DNI")
+            print("No se encontró un empleado con ese DNI ")
 
     def buscar_por_nombre_apellido(self):
-        texto_a_buscar = input("Ingrese parte del nombre o apellido a buscar")
+        texto_a_buscar = input("Ingrese parte del nombre o apellido a buscar ").capitalize()
         empleados = self.personal.buscar_por_nombre_apellido(texto_a_buscar)
         if empleados:
             # Mostramos los datos del empleado:
             for e in empleados:
                 print(e.mostrar_datos())
         else:
-            print("No se encontró ningún empleado con ese nombre o apellido")
+            print("No se encontró ningún empleado con ese nombre o apellido ")
 
     def calcular_comision(self):
-        dni_a_buscar = input("Ingrese el DNI a buscar")
+        dni_a_buscar = input("Ingrese el DNI a buscar ")
         empleado = self.personal.buscar_por_dni(dni_a_buscar)
         if empleado:
             print(empleado.mostrar_datos())
             print("Comision: " + str(empleado.calcular_comision()))
             print("Ingreso total: " + str(empleado.calcular_ingreso_total()))
         else:
-            print("No se encontró un empleado con ese DNI")
+            print("No se encontró un empleado con ese DNI ")
 
     def lista_completa(self):
         for empleado in self.personal.lista_empleados:

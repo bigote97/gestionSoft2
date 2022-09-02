@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+from empleado import Empleado
 
-class EmpleadoPermanente:
+class EmpleadoPermanente(Empleado):
   def __init__(self, nombre, apellido, dni, salario, antiguedad):
     super().__init__(nombre, apellido, dni, salario)
     self.antiguedad = antiguedad
