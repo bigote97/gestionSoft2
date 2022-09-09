@@ -72,7 +72,7 @@ class Aplicacion:
 
 		for input in range(len(inputs)):
 			if (inputs[input] == ''):
-				inputs[input] = 0
+				inputs[input] = None
 			else:
 				inputs[input] = int(inputs[input])
 		

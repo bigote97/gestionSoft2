@@ -9,10 +9,16 @@ class Suma:
 		self.n5 = n5
 
 	def mostrar_resultado(self):
-		return self.n1 + self.n2 + self.n3 + self.n4 + self.n5
+		suma = self.n1 + self.n2
+		if (self.n3 != None):
+			suma += self.n3
+		return suma
 
 	def mostrar_operacion_completa(self):
-		return str(self.n1) + ' + ' + str(self.n2) + ' = ' \
+		suma = str(self.n1) + ' + ' + str(self.n2) 
+		if (self.n3 != None):
+			suma += ' + ' + str(self.n3) 
+		return suma + ' = ' \
 			+ str(self.mostrar_resultado())
 
 
