@@ -12,12 +12,20 @@ class Suma:
 		suma = self.n1 + self.n2
 		if (self.n3 != None):
 			suma += self.n3
+		if (self.n4 != None):
+			suma += self.n4
+		if (self.n5 != None):
+			suma += self.n5
 		return suma
 
 	def mostrar_operacion_completa(self):
 		suma = str(self.n1) + ' + ' + str(self.n2) 
 		if (self.n3 != None):
 			suma += ' + ' + str(self.n3) 
+		if (self.n4 != None):
+			suma += ' + ' + str(self.n4) 
+		if (self.n5 != None):
+			suma += ' + ' + str(self.n5) 
 		return suma + ' = ' \
 			+ str(self.mostrar_resultado())
 
