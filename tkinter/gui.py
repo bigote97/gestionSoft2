@@ -25,8 +25,8 @@ class Aplicacion:
 		self.ctext5 = ttk.Entry(self.raiz, width=30)
 		self.separador = ttk.Separator(self.raiz, orient=tkinter.HORIZONTAL)
 
-		self.boton1 = ttk.Button(self.raiz, text="Calcular",
-						command=self.calcular)
+		self.boton1 = ttk.Button(self.raiz, text="Sumar",
+						command=self.sumar)
 		self.boton2 = ttk.Button(self.raiz, text="Salir", command=quit)
 
 		self.texto_resultado = tkinter.StringVar()
@@ -58,11 +58,11 @@ class Aplicacion:
 
 		self.ctext1.focus_set()
 
-		self.raiz.bind('<Return>', self.calcular)
+		self.raiz.bind('<Return>', self.sumar)
 
 		self.raiz.mainloop()
 
-	def calcular(self, event=None):
+	def sumar(self, event=None):
 		inputs =[]
 		inputs.append(self.ctext1.get())
 		inputs.append(self.ctext2.get())
@@ -78,7 +78,7 @@ class Aplicacion:
 		
 		s = Suma(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4])
 
-		texto = s.mostrar_operacion_completa()
+		texto = s.mostrar_suma_completa()
 		
 		self.texto_resultado.set(texto)
 		print(texto)
